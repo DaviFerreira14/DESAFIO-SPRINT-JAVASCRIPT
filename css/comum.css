@@ -94,10 +94,13 @@ footer div {
 
 button:hover {
     background: #1b357e;
+    transform: scale(1.1);
 }
+
 button {
     background: #1351d8;
     color: #fff;
     border: 0px;
     border-radius: 10px;
+    cursor: pointer;
 }
