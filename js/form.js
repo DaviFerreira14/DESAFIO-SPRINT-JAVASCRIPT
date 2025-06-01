@@ -1,4 +1,13 @@
-class contato {}
+class contato {
+  constructor(nome, sobrenome, email, cpf, telefone, contato) {
+    this.nome = nome;
+    this.sobrenome = sobrenome;
+    this.email = email;
+    this.cpf = cpf;
+    this.telefone = telefone;
+    this.contato = contato;
+  }
+}
 
 function Post(form) {
   let data = new contato(
@@ -9,10 +18,12 @@ function Post(form) {
     form.elements.namedItem("telefone").value,
     form.elements.namedItem("contato").value
   );
+
+  Enviar(data);
 }
 
 function Enviar() {
-  var nome = document.getElementById("nomeid");
+  var nome = document.getElementById("nome-id");
 
   if (nome.value != "") {
     alert(
