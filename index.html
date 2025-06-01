@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ford</title>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">    
-    <link href="css/reset.css" rel="stylesheet">
-    <link href="css/comum.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <title>Ford</title>    
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/comum.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/carousel.js"></script>
 </head>
 <body>
     <header>       
@@ -30,26 +30,18 @@
         </nav>
 
     </header>
-
     <main>
-        <div class="carousel">
-            <div class="container" id="imgs">
-            <div class="carousel-conteudo">
-                <a href="lancamento.html"><img class="img-carousel" src="./img/imagem_1.jpg" alt="Ranger Black"></a>
-                <a href="lancamento.html" class="texto">Esta é a nova Ranger Ford 2022. Verifique novidades.</a>
-            </div>
-            <div class="carousel-conteudo">
-                <img class="img-carousel" src="./img/imagem_2.jpg" alt="Fabrica Antiga">
-                <p class="texto">Ford nossa história é um orgulho!</p>
-            </div>
-            <div class="carousel-conteudo">
-                <a href="lancamento.html"><img class="img-carousel" src="./img/imagem_3.jpg" alt="Ford Bronco"></a>
-                <a href="lancamento.html" class="texto">Nova Ford Bronco Sport 2022</a>
-            </div>
-            </div>
+        <div id="carousel">
         </div>
+        <div id="carousel-title">
+        </div>
+        <script>
+            carouselArr.push(new Carousel("imagem_1.jpg","Esta é a nova Ranger Ford 2022. Verifique novidades.","lancamento.html"));
+            carouselArr.push(new Carousel("imagem_2.jpg","Ford a nossa história","#"));
+            carouselArr.push(new Carousel("imagem_3.jpg","Nova Ford Bronco Sport 2022","lancamento.html"));
+            Carousel.Start(carouselArr);
+        </script>
     </main>
-
     <footer>
         <nav id="social">
             <ul>
@@ -62,8 +54,6 @@
         <div>
            <img src="img/ford-96.png" width="70"  />
         </div>
-    </footer>
-
-    <script src="js/carousel.js"></script>    
+    </footer>    
 </body>
 </html>

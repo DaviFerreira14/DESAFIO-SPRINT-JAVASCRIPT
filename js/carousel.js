@@ -1,16 +1,39 @@
-const imgs = document.getElementById('imgs');
-const img = document.querySelectorAll('#imgs img');
+let carouselArr = [];
 
-let idx = 0;
-
-function carousel() {
-    idx++;
-
-    if(idx > img.length - 1){
-        idx = 0;
+class Carousel {
+    constructor(imagem, texto, link) {
+        this.imagem = imagem;
+        this.texto = texto;
+        this.link = link;
+    }
+    
+    static Start(arr){
+        if(arr && arr.length > 0){
+                Carousel._sequence = 0;
+                Carousel._size = arr.length;
+                Carousel._data = arr;
+                Carousel.Next(); 
+                Carousel._interval = setInterval(function(){ Carousel.Next(); },2000);            
+        } else {
+            throw "Method Start need a Array Variable.";
+        }
     }
 
-    imgs.style.transform = `translateX(${-idx * 1440}px)`;
-}   
+    static Next(){
+        const item = Carousel._data[Carousel._sequence];
+        const carouselDiv = document.getElementById("carousel");
+        const titleDiv = document.getElementById("carousel-title");
 
-setInterval(carousel, 5000)
+        carouselDiv.innerHTML = ` 
+            <a href="${item.link}">
+                <img src="img/${item.imagem}" alt="${item.texto}"
+            </a>
+        `;
+
+        titleDiv.innerHTML = `
+            <h2> ${item.texto}</h2>
+        `;
+
+        Carousel._sequence = (Carousel._sequence + 1) % Carousel._size;
+    }
+};
